@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retour confidentiel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1a242f;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Retour confidentiel</h1>
+  <p>Merci de nous partager vos remarques. Elles resteront strictement confidentielles.</p>
+
+  <form action="mailto:monzatpaul@gmail.com" method="POST" enctype="text/plain">
+    <input type="text" name="nom" placeholder="Nom (facultatif)">
+    <input type="email" name="email" placeholder="Email (si vous souhaitez une réponse)">
+    <textarea name="message" rows="6" placeholder="Expliquez-nous ce qui n'a pas convenu..." required></textarea>
+    <button type="submit">Envoyer mon retour</button>
+  </form>
+
+  <div class="footer">Cabinet Paul Monzat — Données traitées de manière confidentielle</div>
+</body>
+</html>
