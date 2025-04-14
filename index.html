@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Votre retour d'expérience - Marche Caetano</title>
+  <title>Votre retour d'expérience</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
       text-align: center;
       padding: 60px 20px;
-      background-color: #f9f9f9;
-      color: #2c3e50;
-    }
-    .logo {
-      width: 100px;
-      margin-bottom: 20px;
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      color: #fff;
+      min-height: 100vh;
     }
     h1 {
-      color: #1a252f;
+      color: #f1c40f;
       font-weight: 600;
+      font-size: 2rem;
     }
     p {
       margin-bottom: 20px;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
+      color: #ccc;
     }
     .stars {
       display: flex;
@@ -31,34 +30,31 @@
       gap: 12px;
       font-size: 2.8rem;
       cursor: pointer;
-      margin-top: 20px;
+      margin: 20px 0;
     }
     .star {
-      color: #ccc;
-      transition: color 0.3s;
+      color: #555;
+      transition: color 0.3s, transform 0.3s;
     }
     .star:hover,
     .star.selected {
-      color: #d4af37; /* Or doré */
+      color: #f1c40f;
+      transform: scale(1.2);
     }
     #infoMessage {
-      margin-top: 25px;
       font-style: italic;
-      font-size: 1rem;
-      color: #555;
+      color: #999;
     }
     .footer {
-      margin-top: 60px;
+      margin-top: 40px;
       font-size: 0.9rem;
-      color: #888;
+      color: #666;
     }
   </style>
 </head>
 <body>
-
-  <img src="https://cdn-icons-png.flaticon.com/512/1069/1069188.png" alt="Logo Cabinet" class="logo">
-  <h1>Cabinet Marche Caetano</h1>
-  <p>Nous vous remercions pour votre confiance. <br>Comment évaluez-vous votre expérience avec notre cabinet d'avocats ?</p>
+  <h1>Merci de votre confiance</h1>
+  <p>Comment évaluez-vous votre expérience avec notre cabinet ?</p>
 
   <div class="stars" id="starContainer">
     <span class="star" data-value="1">★</span>
@@ -70,7 +66,7 @@
 
   <p id="infoMessage"></p>
 
-  <div class="footer">© 2025 Cabinet d’Avocats Marche Caetano – Tulle, France. Tous droits réservés.</div>
+  <div class="footer">Service confidentiel et sécurisé — Cabinet Paul Monzat</div>
 
   <script>
     const stars = document.querySelectorAll('.star');
@@ -88,12 +84,12 @@
         });
 
         if (rating >= 4) {
-          message.textContent = "Merci ! Vous allez être redirigé vers notre page Google pour y laisser un avis.";
+          message.textContent = "Merci ! Vous allez être redirigé vers notre page Google.";
           setTimeout(() => {
             window.location.href = "https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E";
           }, 2000);
         } else {
-          message.textContent = "Merci pour votre retour. Vous allez être invité à nous transmettre vos remarques en toute confidentialité.";
+          message.textContent = "Merci pour votre retour. Vous allez être invité à nous envoyer un message confidentiel.";
           setTimeout(() => {
             window.location.href = "formulaire.html";
           }, 2000);
@@ -101,6 +97,5 @@
       });
     });
   </script>
-
 </body>
 </html>
