@@ -98,30 +98,20 @@
           }
         });
 
-        responseContainer.innerHTML = '';
-
         if (rating >= 4) {
-          message.textContent = "Merci pour votre avis positif ! Vous pouvez aider d'autres clients en laissant un avis public.";
-          responseContainer.innerHTML = `
-            <a class="choice-button" href="https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E" target="_blank">Laisser un avis sur Google</a>
-          `;
+          message.textContent = "Merci pour votre avis positif ! Souhaitez-vous le partager publiquement ou simplement nous le transmettre ?";
         } else {
-          message.textContent = "Merci pour votre retour. Avant tout, pouvez-vous nous expliquer ce qui n'a pas été à la hauteur ?";
-          responseContainer.innerHTML = `
-            <a class="choice-button" href="formulaire.html">Exprimer mon insatisfaction</a>
-          `;
-
-          setTimeout(() => {
-            const googlePrompt = document.createElement('div');
-            googlePrompt.innerHTML = `
-              <p style="margin-top:20px; font-size: 0.9rem;">Souhaitez-vous aussi laisser un avis public ?</p>
-              <a class="choice-button" href="https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E" target="_blank">Laisser un avis sur Google</a>
-            `;
-            responseContainer.appendChild(googlePrompt);
-          }, 10000); // Affichage du lien Google avec 10s de délai
+          message.textContent = "Merci pour votre retour. Nous aimerions comprendre ce que nous pourrions améliorer.";
         }
+
+        responseContainer.innerHTML = `
+          <p style="margin-top:20px;">Choisissez comment partager votre retour :</p>
+          <a class="choice-button" href="https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E" target="_blank" rel="noopener noreferrer">Laisser un avis public sur Google</a>
+          <a class="choice-button" href="formulaire.html">Faire un retour confidentiel</a>
+        `;
       });
     });
   </script>
 </body>
 </html>
+
