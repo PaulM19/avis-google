@@ -41,15 +41,17 @@
       color: #f1c40f;
       transform: scale(1.2);
     }
-    #responseContainer {
-      margin-top: 30px;
+    #infoMessage {
+      margin-top: 20px;
+      font-style: italic;
+      color: #ccc;
     }
     .choice-button {
       display: inline-block;
       background-color: #ffffff;
       color: #000;
       padding: 10px 20px;
-      margin: 10px;
+      margin-top: 20px;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
@@ -96,17 +98,28 @@
           }
         });
 
-        if (rating >= 4) {
-          message.textContent = "Merci pour votre retour positif !";
-        } else {
-          message.textContent = "Merci pour votre retour. Vos remarques nous aident à progresser.";
-        }
+        responseContainer.innerHTML = '';
 
-        responseContainer.innerHTML = `
-          <p style="margin-top:20px;">Souhaitez-vous :</p>
-          <a class="choice-button" href="https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E" target="_blank">Laisser un avis public sur Google</a>
-          <a class="choice-button" href="formulaire.html">Faire un retour confidentiel</a>
-        `;
+        if (rating >= 4) {
+          message.textContent = "Merci pour votre avis positif ! Vous pouvez aider d'autres clients en laissant un avis public.";
+          responseContainer.innerHTML = `
+            <a class="choice-button" href="https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E" target="_blank">Laisser un avis sur Google</a>
+          `;
+        } else {
+          message.textContent = "Merci pour votre retour. Avant tout, pouvez-vous nous expliquer ce qui n'a pas été à la hauteur ?";
+          responseContainer.innerHTML = `
+            <a class="choice-button" href="formulaire.html">Exprimer mon insatisfaction</a>
+          `;
+
+          setTimeout(() => {
+            const googlePrompt = document.createElement('div');
+            googlePrompt.innerHTML = `
+              <p style="margin-top:20px; font-size: 0.9rem;">Souhaitez-vous aussi laisser un avis public ?</p>
+              <a class="choice-button" href="https://search.google.com/local/writereview?placeid=ChIJveQO_p6M-EcR27LlNEUrG6E" target="_blank">Laisser un avis sur Google</a>
+            `;
+            responseContainer.appendChild(googlePrompt);
+          }, 10000); // Affichage du lien Google avec 10s de délai
+        }
       });
     });
   </script>
